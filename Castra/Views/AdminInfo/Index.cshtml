@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Admin Info";
+}
+
+<h2>@ViewBag.Title</h2>
+<table>
+    <tr><td> @Html.ActionLink("Group Supplier Product Count", "SupplierCount") </td></tr>
+    <tr><td> @Html.ActionLink("Join All Supplier Products", "SupplierProducts") </td></tr>
+    <tr><td> @Html.ActionLink("Group Products by Type", "ProductsByType") </td></tr>
+</table>

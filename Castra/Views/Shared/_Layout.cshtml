@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width" />
+
+
+    <style>
+        html, body, #map-canvas {
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+    <!-- Scroll bar http://manos.malihu.gr/jquery-custom-content-scroller/ -->
+    <link rel="stylesheet" href="http://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css" />
+    <script src="http://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script>
+        (function ($) {
+            $(window).load(function () {
+                $("body").mCustomScrollbar({
+                    theme: "dark"
+                });
+
+            });
+        })(jQuery);
+    </script>
+    <!-- Scroll bar END-->
+
+    <script>
+        $(document).ready(function () {
+            // if search exists > toggle
+            if ($('#searchOptions').length != 0) {
+                $("#searchOptions").hide();
+                $("button").click(function () {
+                    $("#searchOptions").slideToggle(500); // toggle
+                    if ($('#searchOptions').height() === 1) {
+                        $('#openSearchButton').html('<i class="fa fa-minus"></i> Close Search options');
+                    } else {
+                        $('#openSearchButton').html('<i class="fa fa-plus"></i> Open Search options');
+                    }
+                });
+            }
+        });
+    </script>
+
+
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+            </div>
+            <div class="float-right">
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+                <nav>
+                    <ul id="menu">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Branches", "Index", "Branch")</li>
+                        <li>@Html.ActionLink("Products", "Index", "Product")</li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink("Suppliers", "Index", "Supplier")</li>
+                            <li>@Html.ActionLink("AdminInfo", "Index", "AdminInfo")</li>
+                        }
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

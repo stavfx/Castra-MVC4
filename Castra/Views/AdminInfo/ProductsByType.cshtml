@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Castra.Controllers.ProductsByType>
+
+@{
+    ViewBag.Title = "ProductsByType";
+}
+<h2>@ViewBag.Title</h2>
+<table>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.Type</td>
+        <td>@item.Count</td>
+    </tr>
+}
+</table>
