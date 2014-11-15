@@ -20,46 +20,30 @@
         Type: @Html.TextBox("type") <br />
         Name: @Html.TextBox("name") <br />
         Price: @Html.TextBox("price") <br />
-        <input type="submit" value="Filter" class="btn btn-danger" />
+        <input type="button" value="Filter" class="btn btn-danger" onclick="search()" />
     </p>
 }
 
+<div id="partialContainer">
+    @Html.Partial("~/Views/Shared/_ProdcutsPartial.cshtml", Model)
+</div>
 
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            @if (User.IsInRole("Admin"))
-            {
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                </td>
-            }
-        </tr>
-    }
-
-</table>
+@section scripts{
+    <script>
+        function search() {
+            var type = $("#type").val();
+            var name = $("#name").val();
+            var price = $("#price").val();
+            //alert(type.val());
+            $.ajax({
+                type: "GET",
+                url: "Product/SearchPartial/",
+                data: { type: type, name: name, price: price },
+                success: function (jsReturnArgs) {
+                    $("#partialContainer").html(jsReturnArgs); //the HTML I returned from the controller
+                },
+                error: function (errorData) { onError(errorData); }
+            });
+        }
+    </script>
+}

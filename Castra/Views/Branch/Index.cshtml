@@ -21,43 +21,30 @@
         Address: @Html.TextBox("address") <br />
         Name: @Html.TextBox("name") <br />
         Phone: @Html.TextBox("phone") <br />
-        <input type="submit" value="Filter" class="btn btn-danger" />
+        <input type="button" value="Filter" class="btn btn-danger" onclick="search()" />
     </p>
 }
 
 
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Phone)
-        </th>
-        <th></th>
-    </tr>
+<div id="partialContainer">
+    @Html.Partial("~/Views/Shared/_BranchesPartial.cshtml", Model)
+</div>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
-        </tr>
-    }
-
-</table>
+@section scripts{
+    <script>
+        function search() {
+            var address = $("#address").val();
+            var name = $("#name").val();
+            var phone = $("#phone").val();
+            $.ajax({
+                type: "GET",
+                url: "Branch/SearchPartial/",
+                data: { address: address, name: name, phone: phone },
+                success: function (jsReturnArgs) {
+                    $("#partialContainer").html(jsReturnArgs); //the HTML I returned from the controller
+                },
+                error: function (errorData) { onError(errorData); }
+            });
+        }
+    </script>
+}

@@ -20,6 +20,16 @@ namespace Castra.Controllers
         // GET: /Supplier/
         public ActionResult Index(string name, string country)
         {
+            return View(GetFilteredSuppliers(name, country));
+        }
+
+        public ActionResult SearchPartial(string name, string country)
+        {
+            return View("~/Views/Shared/_SuppliersPartial.cshtml", GetFilteredSuppliers(name, country));
+        }
+
+        public IEnumerable<Supplier> GetFilteredSuppliers(string name, string country)
+        {
             var suppliers = from s in db.Suppliers select s;
 
             if (!String.IsNullOrEmpty(country))
@@ -34,12 +44,11 @@ namespace Castra.Controllers
                 suppliers = suppliers.Where(p => p.Name.ToLower().Contains(name));
             }
 
-            return View(suppliers.ToList());
+            return suppliers.ToList();
         }
-
         //
         // GET: /Supplier/Details/5
-        
+
         public ActionResult Details(int id = 0)
         {
             Supplier supplier = db.Suppliers.Find(id);
@@ -52,7 +61,7 @@ namespace Castra.Controllers
 
         //
         // GET: /Supplier/Create
-        
+
         public ActionResult Create()
         {
             return View();
@@ -60,7 +69,7 @@ namespace Castra.Controllers
 
         //
         // POST: /Supplier/Create
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Supplier supplier)
@@ -77,7 +86,7 @@ namespace Castra.Controllers
 
         //
         // GET: /Supplier/Edit/5
-        
+
         public ActionResult Edit(int id = 0)
         {
             Supplier supplier = db.Suppliers.Find(id);
@@ -90,7 +99,7 @@ namespace Castra.Controllers
 
         //
         // POST: /Supplier/Edit/5
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Supplier supplier)
@@ -106,7 +115,7 @@ namespace Castra.Controllers
 
         //
         // GET: /Supplier/Delete/5
-        
+
         public ActionResult Delete(int id = 0)
         {
             Supplier supplier = db.Suppliers.Find(id);
@@ -119,7 +128,7 @@ namespace Castra.Controllers
 
         //
         // POST: /Supplier/Delete/5
-        
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

@@ -17,34 +17,29 @@
     <p id="searchOptions">
         Name: @Html.TextBox("name") <br />
         Country: @Html.TextBox("country") <br />
-        <input type="submit" value="Filter" class="btn btn-danger" />
+        <input type="button" value="Filter" class="btn btn-danger" onclick="search()"/>
     </p>
 }
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Country)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Country)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
+
+<div id="partialContainer">
+    @Html.Partial("~/Views/Shared/_SuppliersPartial.cshtml", Model)
+</div>
+
+@section scripts{
+    <script>
+        function search() {
+            var name = $("#name").val();
+            var country = $("#country").val();
+            $.ajax({
+                type: "GET",
+                url: "Supplier/SearchPartial/",
+                data: { country: country, name: name },
+                success: function (jsReturnArgs) {
+                    $("#partialContainer").html(jsReturnArgs); //the HTML I returned from the controller
+                },
+                error: function (errorData) { onError(errorData); }
+            });
+        }
+    </script>
 }
-
-</table>

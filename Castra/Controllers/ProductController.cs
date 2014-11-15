@@ -20,6 +20,16 @@ namespace Castra.Controllers
 
         public ActionResult Index(string type, string name, int? price)
         {
+            return View(getFilteredProducts(type,name,price));
+        }
+
+        public ActionResult SearchPartial(string type, string name, int? price)
+        {
+            return View("~/Views/Shared/_ProdcutsPartial.cshtml", getFilteredProducts(type, name, price));
+        }
+
+        private IEnumerable<Product> getFilteredProducts(string type, string name, int? price)
+        {
             var products = from p in db.Products select p;
 
             if (!String.IsNullOrEmpty(type))
@@ -39,7 +49,7 @@ namespace Castra.Controllers
                 products = products.Where(p => p.Price == price);
             }
 
-            return View(products.ToList());
+            return products.ToList();
         }
 
         //

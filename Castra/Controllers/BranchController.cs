@@ -20,14 +20,24 @@ namespace Castra.Controllers
 
         public ActionResult Index(string name, string address, string phone)
         {
+            return View(GetFilteredBranches(name, address, phone));
+        }
+
+        public ActionResult SearchPartial(string name, string address, string phone)
+        {
+            return View("~/Views/Shared/_BranchesPartial.cshtml", GetFilteredBranches(name, address, phone));
+        }
+
+        public IEnumerable<Branch> GetFilteredBranches(string name, string address, string phone)
+        {
             var branches = from b in db.Branches select b;
 
             if (!String.IsNullOrEmpty(address))
             {
                 address = address.ToLower();
                 branches = branches.Where(b => b.Address.ToLower().Contains(address));
-            } 
-            
+            }
+
             if (!String.IsNullOrEmpty(phone))
             {
                 phone = phone.ToLower();
@@ -40,7 +50,7 @@ namespace Castra.Controllers
                 branches = branches.Where(p => p.Name.ToLower().Contains(name));
             }
 
-            return View(branches.ToList());
+            return branches.ToList();
         }
 
         //

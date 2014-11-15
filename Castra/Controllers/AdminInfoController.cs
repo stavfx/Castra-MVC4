@@ -6,9 +6,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Castra.Models;
+using Castra.Filters;
 
 namespace Castra.Controllers
 {
+    [InitializeSimpleMembership]
     public class AdminInfoController : Controller
     {
         private UsersContext db = new UsersContext();

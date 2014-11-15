@@ -356,6 +356,9 @@
     <Content Include="Views\AdminInfo\SupplierCount.cshtml" />
     <Content Include="Views\AdminInfo\SupplierProducts.cshtml" />
     <Content Include="Views\AdminInfo\ProductsByType.cshtml" />
+    <Content Include="Views\Shared\_ProdcutsPartial.cshtml" />
+    <Content Include="Views\Shared\_BranchesPartial.cshtml" />
+    <Content Include="Views\Shared\_SuppliersPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
