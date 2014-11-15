@@ -35,9 +35,14 @@ namespace Castra.Controllers
             foreach (var sup in suppliers)
             {
                 var item = new SupplierProducts();
-                foreach (var product in sup.Products)
+                item.Name = sup.Name;
+                item.ProductList = "";
+                if (sup.Products != null)
                 {
-                    item.ProductList += product.Name + "<br/>";
+                    foreach (var product in sup.Products)
+                    {
+                        item.ProductList += product.Name + ", ";
+                    }
                 }
                 result.Add(item);
             }

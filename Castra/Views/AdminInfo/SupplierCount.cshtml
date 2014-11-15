@@ -4,4 +4,18 @@
     ViewBag.Title = "SupplierCount";
 }
 
-<h2>SupplierCount</h2>
+<h2>@ViewBag.Title</h2>
+
+<table>
+    <tr>
+        <th>Supplier</th>
+        <th>Product Count</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Products.Count()</td>
+        </tr>
+    }
+</table>
