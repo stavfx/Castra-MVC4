@@ -6,42 +6,46 @@
     <section class="featured">
         <div class="content-wrapper">
             <hgroup class="title">
-                <h1>@ViewBag.Title.</h1>
-                <h2>@ViewBag.Message</h2>
+                <h1>Castra - Your clothes, Your choice.</h1>
             </hgroup>
             <p>
-                To learn more about ASP.NET MVC visit
-                <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET MVC.
-                If you have any questions about ASP.NET MVC visit
-                <a href="http://forums.asp.net/1146.aspx/1?MVC" title="ASP.NET MVC Forum">our forums</a>.
+               The perfect place to find the perfect dress, the perfect shirt, the perfect YOU!
             </p>
         </div>
     </section>
 }
-<h3>We suggest the following:</h3>
-<ol class="round">
-    <li class="one">
-        <h5>Getting Started</h5>
-        ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-        enables a clean separation of concerns and that gives you full control over markup
-        for enjoyable, agile development. ASP.NET MVC includes many features that enable
-        fast, TDD-friendly development for creating sophisticated applications that use
-        the latest web standards.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245151">Learn more…</a>
-    </li>
 
-    <li class="two">
-        <h5>Add NuGet packages and jump-start your coding</h5>
-        NuGet makes it easy to install and update free libraries and tools.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245153">Learn more…</a>
-    </li>
+<aside id="video">
+    <video width="320" height="240" controls>
+        <!--<source src=" https />/www.youtube.com/watch?v=lhUnZtZbIpk" type="video/mp4">-->
+        <source src="~/Video/fashion2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</aside>
+<h1 id="pq">POPULAR QUESTIONS</h1>
+<div id="questions">
+    <h3>I'm a US customer. How do I return something to you?</h3>
+    We want to give you a hassle-free way to return anything, so you can return any item to us within 28 days of receiving your original order, including sale items. Its free and fully trackable.
+    <h3>How does the Express 2-Day Shipping method work?</h3>
+    If you choose US Express 2-Day Shipping: It costs $12 and is fully trackable. Your parcel will arrive within 2 business days (excluding weekends and public holidays).
+    <h3>How does the US Standard Delivery shipping method work?</h3>
+    If you choose US Standard Shipping: It's fully trackable. If your order is above $25.00, no delivery charge will be applied.
+    <h3>Have my returned items arrived back at your warehouse?</h3>
+    We provide a hassle-free way to return your items back to Castra within 28 days of receiving your original order, including sale items. Returns can take up to 10 working days (excluding weekends and public holidays) to arrive at our warehouse in returned from the US.
+</div>
 
-    <li class="three">
-        <h5>Find Web Hosting</h5>
-        You can easily find a web hosting company that offers the right mix of features
-        and price for your applications.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
-    </li>
-</ol>
-<script type="text/javascript" src="http://www.brainyquote.com/link/quotebr.js"></script>
+
+<style>
+    #questions {
+         -webkit-column-count: 2; 
+         -moz-column-count: 2; 
+          column-count: 2;
+    }
+    #pq {
+        text-shadow: 3px 3px 3px #808080;
+    }
+    #video {
+        float: right;
+        padding: 50px;
+    }
+</style>
