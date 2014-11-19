@@ -1,17 +1,20 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+<!--Main Layout-->
 <head>
     <meta charset="utf-8" />
     <title>@ViewBag.Title - Castra - Your clothes, Your choice</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
-
+    <!--Google maps source js-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!--D3 charts source-->
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> 
     <meta name="viewport" content="width=device-width" />
 
+    <!--Google maps style-->
     <style>
         html, body, #map-canvas {
             height: 100%;
@@ -20,7 +23,7 @@
         }
     </style>
 
-
+    <!--Google maps source js-->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 
    <!-- Scroll bar http://manos.malihu.gr/jquery-custom-content-scroller/ -->
@@ -38,7 +41,7 @@
     </script>
     <!-- Scroll bar END-->
 
-
+    <!--Saerch part in HTML pages-->
     <script>
         $(document).ready(function () {
             // if search exists > toggle
@@ -58,17 +61,22 @@
 
 
 
-    @Styles.Render("~/Content/Site.css")
+    <!--@Styles.Render("~/Content/Site.css")-->
+    @Styles.Render("~/Content/Layout.css")
     @Scripts.Render("~/bundles/modernizr")
    
 </head>
+
+<!--Main Body-->
 <body>
     <header>
         <div class="content-wrapper">
                 <section id="login">
                     @Html.Partial("_LoginPartial")
                 </section>
-                <nav>
+
+       <!--Navigation bar-->  
+              <nav>
                     <ul id="menu">
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("Branches", "Index", "Branch")</li>
@@ -82,17 +90,20 @@
                 </nav>
         </div>
     </header>
+    <!--Inner body-->
     <div id="body">
         @RenderSection("featured", required: false)
         <section class="content-wrapper main-content clear-fix">
             @RenderBody()
         </section>
     </div>
+    <!--Footer-->
     <footer>
         <div class="content-wrapper">
             <div class="float-left">
+                <!--Quote of the Day-->
                 <script type="text/javascript" src="http://www.brainyquote.com/link/quotebr.js"></script>
-                <p>&copy; @DateTime.Now.Year - Castra Inc. Jasmine Nouriel, Maayan Apelboim, Stav Raviv and Dana Urbach</p>
+                <p>&copy; @DateTime.Now.Year - Castra Inc. Jasmine Nouriel, Maayan Apelboim and Stav Raviv</p>
             </div>
         </div>
     </footer>

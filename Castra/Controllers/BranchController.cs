@@ -23,6 +23,7 @@ namespace Castra.Controllers
             return View(GetFilteredBranches(name, address, phone));
         }
 
+        //Partial view
         public ActionResult SearchPartial(string name, string address, string phone)
         {
             return View("~/Views/Shared/_BranchesPartial.cshtml", GetFilteredBranches(name, address, phone));
@@ -30,6 +31,7 @@ namespace Castra.Controllers
 
         public IEnumerable<Branch> GetFilteredBranches(string name, string address, string phone)
         {
+            //LINQ - select from DB
             var branches = from b in db.Branches select b;
 
             if (!String.IsNullOrEmpty(address))

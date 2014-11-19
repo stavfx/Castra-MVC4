@@ -23,6 +23,7 @@ namespace Castra.Controllers
             return View(GetFilteredSuppliers(name, country));
         }
 
+        //Partial View
         public ActionResult SearchPartial(string name, string country)
         {
             return View("~/Views/Shared/_SuppliersPartial.cshtml", GetFilteredSuppliers(name, country));
@@ -30,6 +31,7 @@ namespace Castra.Controllers
 
         public IEnumerable<Supplier> GetFilteredSuppliers(string name, string country)
         {
+            //LINQ - select from DB
             var suppliers = from s in db.Suppliers select s;
 
             if (!String.IsNullOrEmpty(country))

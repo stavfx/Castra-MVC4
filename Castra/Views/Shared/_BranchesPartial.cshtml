@@ -1,8 +1,13 @@
 ﻿@model IEnumerable<Castra.Models.Branch>
+<!--Partial view for search results-->
 
+
+<!--Don't use layout-->
 @{
     Layout = null;
 }
+
+<!--Table of search results-->
 <table>
     <tr>
         <th>
@@ -29,11 +34,22 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Phone)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
+
+            <!--Show Edit and Delete only for admins-->
+            @if (User.IsInRole("Admin"))
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            }
+           @if (!User.IsInRole("Admin"))
+           {
+                 <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) 
+                 </td>
+            }
         </tr>
     }
 

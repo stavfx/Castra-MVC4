@@ -23,11 +23,13 @@ namespace Castra.Controllers
             return View();
         }
 
+        //Return View of Supplier's products count
         public ActionResult SupplierCount()
         {
             return View(db.Suppliers.ToList());
         }
 
+        //Return View of Supplier's products
         public ActionResult SupplierProducts()
         {
             var suppliers = db.Suppliers;
@@ -49,6 +51,7 @@ namespace Castra.Controllers
             return View(result);
         }
 
+        //Return View of Product by Type
         public ActionResult ProductsByType()
         {
             var products = from p in db.Products

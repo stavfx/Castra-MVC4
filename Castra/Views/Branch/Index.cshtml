@@ -15,21 +15,23 @@
 
 <button id="openSearchButton"><i class="fa fa-plus"></i> Open Search options</button>
 
+<!--Search Form-->
 @using (Html.BeginForm())
 {
     <p id="searchOptions">
-        Address: @Html.TextBox("address") <br />
-        Name: @Html.TextBox("name") <br />
-        Phone: @Html.TextBox("phone") <br />
+        Address: @Html.TextBox("address") <br /><br />
+        Name: @Html.TextBox("name") <br /><br />
+        Phone: @Html.TextBox("phone") <br /><br />
         <input type="button" value="Filter" class="btn btn-danger" onclick="search()" />
     </p>
 }
 
-
+<!--Partial View for search results-->
 <div id="partialContainer">
     @Html.Partial("~/Views/Shared/_BranchesPartial.cshtml", Model)
 </div>
 
+<!--JavaScript that is invoked in Filter Button (uses Ajax)-->
 @section scripts{
     <script>
         function search() {
@@ -41,7 +43,7 @@
                 url: "Branch/SearchPartial/",
                 data: { address: address, name: name, phone: phone },
                 success: function (jsReturnArgs) {
-                    $("#partialContainer").html(jsReturnArgs); //the HTML I returned from the controller
+                    $("#partialContainer").html(jsReturnArgs); //the HTML returned from the controller
                 },
                 error: function (errorData) { onError(errorData); }
             });

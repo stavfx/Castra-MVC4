@@ -1,0 +1,14 @@
+
+    div#questions {
+         -webkit-column-count: 2; 
+         -moz-column-count: 2; 
+          column-count: 2;
+    }
+    h1#pq {
+        text-shadow: 3px 3px 3px #808080;
+    }
+    aside#video {
+        float: right;
+        padding: 50px;
+    }
+    

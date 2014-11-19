@@ -14,20 +14,23 @@
 
 <button id="openSearchButton"><i class="fa fa-plus"></i> Open Search options</button>
 
+<!--Search Form-->
 @using (Html.BeginForm())
 {
     <p id="searchOptions">
-        Type: @Html.TextBox("type") <br />
-        Name: @Html.TextBox("name") <br />
-        Price: @Html.TextBox("price") <br />
+        Type: @Html.TextBox("type") <br /> <br />
+        Name: @Html.TextBox("name") <br /> <br />
+        Price: @Html.TextBox("price") <br /> <br />
         <input type="button" value="Filter" class="btn btn-danger" onclick="search()" />
     </p>
 }
 
+<!--Partial View for search results-->
 <div id="partialContainer">
     @Html.Partial("~/Views/Shared/_ProdcutsPartial.cshtml", Model)
 </div>
 
+<!--JavaScript that is invoked in Filter Button (uses Ajax)-->
 @section scripts{
     <script>
         function search() {
@@ -61,19 +64,5 @@
     };
     imageObj.src = "/Images/clothes.jpg";
 </script>
+@Styles.Render("~/Content/Product.css")
 
-<style>
-    #myCanvas {
-        margin-top: 80px;
-        -webkit-transition: all 2s ease-in-out;
-		-moz-transition: all 2s ease-in-out;
-		-ms-transition: all 2s ease-in-out;
-		transition: all 2s ease-in-out;
-    }
-    #myCanvas:hover {
-        -webkit-transform:rotate(720deg) scale(1.5,1.5);
-		-moz-transform:rotate(720deg) scale(1.5,1.5);
-	    -ms-transform:rotate(720deg) scale(1.5,1.5);
-		transform:rotate(720deg) scale(1.5,1.5);
-    }
-</style>

@@ -12,20 +12,22 @@
 
 <button id="openSearchButton"><i class="fa fa-plus"></i> Open Search options</button>
 
+<!--Search Form-->
 @using (Html.BeginForm())
 {
     <p id="searchOptions">
-        Name: @Html.TextBox("name") <br />
-        Country: @Html.TextBox("country") <br />
+        Name: @Html.TextBox("name") <br /><br />
+        Country: @Html.TextBox("country") <br /><br />
         <input type="button" value="Filter" class="btn btn-danger" onclick="search()"/>
     </p>
 }
 
-
+<!--Partial View for search results-->
 <div id="partialContainer">
     @Html.Partial("~/Views/Shared/_SuppliersPartial.cshtml", Model)
 </div>
 
+<!--JavaScript that is invoked in Filter Button (uses Ajax)-->
 @section scripts{
     <script>
         function search() {

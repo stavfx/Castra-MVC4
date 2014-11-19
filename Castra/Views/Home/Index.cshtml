@@ -2,26 +2,31 @@
     ViewBag.Title = "Home Page";
 }
 
+<!--LOGO in Home page-->
 @section featured {
     <section class="featured">
         <div class="content-wrapper">
             <hgroup class="title">
                 <h1>Castra - Your clothes, Your choice.</h1>
             </hgroup>
-            <p>
-               The perfect place to find the perfect dress, the perfect shirt, the perfect YOU!
+            
+            <p id="perfect">
+                 The perfect place to find the perfect dress, the perfect shirt, the perfect YOU!
             </p>
-        </div>
+            
+</div>
     </section>
 }
 
+<!--Fashion Video in Home page-->
 <aside id="video">
     <video width="320" height="240" controls>
-        <!--<source src=" https />/www.youtube.com/watch?v=lhUnZtZbIpk" type="video/mp4">-->
         <source src="~/Video/fashion2.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 </aside>
+
+<!--Body contentof Home page-->
 <h1 id="pq">POPULAR QUESTIONS</h1>
 <div id="questions">
     <h3>I'm a US customer. How do I return something to you?</h3>
@@ -34,18 +39,5 @@
     We provide a hassle-free way to return your items back to Castra within 28 days of receiving your original order, including sale items. Returns can take up to 10 working days (excluding weekends and public holidays) to arrive at our warehouse in returned from the US.
 </div>
 
+@Styles.Render("~/Content/Home.css")
 
-<style>
-    #questions {
-         -webkit-column-count: 2; 
-         -moz-column-count: 2; 
-          column-count: 2;
-    }
-    #pq {
-        text-shadow: 3px 3px 3px #808080;
-    }
-    #video {
-        float: right;
-        padding: 50px;
-    }
-</style>

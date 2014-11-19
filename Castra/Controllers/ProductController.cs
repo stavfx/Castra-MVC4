@@ -23,6 +23,7 @@ namespace Castra.Controllers
             return View(getFilteredProducts(type,name,price));
         }
 
+        //Partial view
         public ActionResult SearchPartial(string type, string name, int? price)
         {
             return View("~/Views/Shared/_ProdcutsPartial.cshtml", getFilteredProducts(type, name, price));
@@ -30,6 +31,7 @@ namespace Castra.Controllers
 
         private IEnumerable<Product> getFilteredProducts(string type, string name, int? price)
         {
+            //linq - select from db
             var products = from p in db.Products select p;
 
             if (!String.IsNullOrEmpty(type))

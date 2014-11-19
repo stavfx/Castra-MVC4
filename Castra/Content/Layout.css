@@ -1,0 +1,361 @@
+﻿
+/*sets layout background - light blue*/
+html {
+    background-color: #7ac0da;
+    margin: 0;
+    padding: 0;
+}
+
+/*sets body background - black*/
+body {
+    color: #333;
+    font-size: 1.0em;
+    font-family: myFont;
+    margin: 20px;
+    padding: 20px;
+
+}
+
+
+
+/*Castra shadow */
+h1 {
+    font-size: 2em;
+    text-shadow: 3px 3px 3px #808080;
+}
+
+
+/* menu - set navigation bar (home, branches etc..)
+----------------------------------------------------------*/
+ul#menu {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin: 0 0 5px;
+    padding: 0;
+    text-align: right;
+}
+
+    ul#menu li {
+        display: inline;
+        list-style: none;
+        padding-left: 40px;
+    }
+
+        ul#menu li a {
+            background: none;
+            color: #000;
+            text-decoration: none;
+            text-shadow: 3px 3px 3px #808080;
+            
+        }
+
+            ul#menu li a:hover {
+                color: #fff;
+                text-decoration: none;
+            }
+
+
+  
+
+/*----------------------------------------------------------*/
+
+
+/* main layout
+----------------------------------------------------------*/
+
+/*Center content */
+.content-wrapper {
+    margin: 0 auto;
+    max-width: 1100px;
+    
+}
+/* spaceing body from layout & set body background*/
+#body {
+    background-color: #efeeef;
+    clear: both;
+    padding-bottom: 150px;
+   
+
+}
+
+/* gap castra and puplar question, but also makes a line on the right?!*/
+.main-content {
+
+    padding-left: 10px;
+    padding-top: 30px;
+}
+
+
+
+/* move down header*/
+header .content-wrapper {
+    padding-top: 20px;
+}
+
+
+footer {
+    clear: both;
+    font-size: .8em;
+    height: 100px;
+
+}
+
+/* googleMaps */
+.googleMaps {
+    width: 530px;
+    height: 200px;
+}
+
+
+
+/* login - shift login to the right
+----------------------------------------------------------*/
+#login {
+    display: block;
+    font-size: .85em;
+    margin: 0 0 10px;
+    text-align: right;
+}
+
+    #login a {
+        /*background-color: #d3dce0;*/
+        margin-left: 10px;
+        margin-right: 3px;
+        padding: 2px 3px;
+        text-decoration: none;
+    }
+
+        #login a.username {
+            background: none;
+            margin: 0;
+            padding: 0;
+            text-decoration: underline;
+        }
+
+    #login ul {
+        margin: 0;
+    }
+
+    #login li {
+        display: inline;
+        list-style: none;
+    }
+
+
+ /* Set castra title with border radius & gradiant color  */
+ /* -------------------------------------------------------------------------------------------- */
+.featured {
+    background-color: #7ac0da;
+ /*     background-color: #000;*/
+}
+
+    .featured .content-wrapper {
+        background-color: #000;
+        background-image: -ms-linear-gradient(left, #000000 0%, #808080 100%);
+        background-image: -o-linear-gradient(left, #000000 0%, #808080 100%);
+        background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #000000), color-stop(1, #808080));
+        background-image: -webkit-linear-gradient(left, #000000 0%, #808080 100%);
+        background-image: linear-gradient(left, #000000 0%, #808080 100%);
+        padding: 20px 40px 30px 40px; 
+        border-radius:2em;
+    }
+
+    .featured hgroup.title h1, .featured hgroup.title h2 {
+        color: #fff;
+        font-size:2em;
+    }
+
+
+    .featured .content-wrapper p {
+        font-size: 1.2em;
+        color: #fff;
+    } 
+    
+hgroup.title {
+    margin-bottom: 10px;
+}
+
+    hgroup.title h1, hgroup.title h2 {
+        display: inline;
+    }
+
+    hgroup.title h2 {
+        font-weight: normal;
+        margin-left: 3px;
+    }
+/* -------------------------------------------------------------------------------------------- */
+
+/* Shift Video right*/
+aside {
+    float: right;
+    width: 10%;
+}
+
+
+/* login page */
+/* ---------------------------------------------------------------------------------------*/
+#loginForm {
+   
+    float: left;
+    width: 50%;
+    margin: 20px;
+
+}
+
+
+    #loginForm .validation-summary-errors ul {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    #loginForm .validation-summary-errors li {
+        display: inline;
+        list-style: none;
+        margin: 0;
+    }
+
+    #loginForm input {
+        width: 250px;
+    }
+
+        #loginForm input[type="checkbox"],
+        #loginForm input[type="submit"],
+        #loginForm input[type="button"],
+        #loginForm button {
+            width: auto;
+        }
+
+#socialLoginForm {
+    margin-left: 20px;
+    width: 40%;
+}
+
+    #socialLoginForm h2 {
+        margin-top: 10px;
+        font-size:1em;
+    }
+
+/* ---------------------------------------------------------------------------------------*/
+
+
+/* forms */
+/* ---------------------------------------------------------------------------------------*/
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+    fieldset legend {
+        display: none;
+    }
+
+    fieldset ol {
+        padding: 0;
+        list-style: none;
+    }
+
+        fieldset ol li {
+            padding-bottom: 5px;
+        }
+
+/* user input below */
+label {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+/*checkbox in line with "remember me"*/
+label.checkbox {
+        display: inline;
+    }
+
+/* ---------------------------------------------------------------------------------------*/
+
+/* Set "logout" in line with "login/register" etc*/
+#logoutForm {
+    display: inline;
+}
+
+
+/* tables - set tables pretty :)
+----------------------------------------------------------*/
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 0.75em;
+    border: 0 none;
+}
+
+th {
+    font-size: 1.2em;
+    text-align: left;
+    border: none 0px;
+    padding-left: 0;
+}
+
+    th a {
+        display: block;
+        position: relative;
+    }
+
+        th a:link, th a:visited, th a:active, th a:hover {
+            color: #333;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 0;
+        }
+
+        th a:hover {
+            color: #000;
+        }
+
+    th.asc a, th.desc a {
+        margin-right: .75em;
+    }
+
+        th.asc a:after, th.desc a:after {
+            display: block;
+            position: absolute;
+            right: 0em;
+            top: 0;
+            font-size: 0.75em;
+        }
+
+        th.asc a:after {
+            content: '▲';
+        }
+
+        th.desc a:after {
+            content: '▼';
+        }
+
+td {
+    padding: 0.25em 2em 0.25em 0em;
+    border: 0 none;
+}
+
+tr.pager td {
+    padding: 0 0.25em 0 0;
+}
+
+
+
+    /* footer
+    ----------------------------------------------------------*/
+    footer .float-left,
+    footer .float-right {
+        float: none;
+    }
+
+    footer {
+        text-align: center;
+        height: auto;
+        padding: 10px 0;
+    }
+
+        footer p {
+            margin: 0;
+        }
+}
+
